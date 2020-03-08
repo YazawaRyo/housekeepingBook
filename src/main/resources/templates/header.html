@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>TOP</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<div th:fragment="header(title)">
+		<a th:href="@{/}">TOPへ</a>
+		<h1 th:text="${title}">title</h1>
+
+		<div class="right">
+			<div class="inline"
+				th:if="${session['scopedTarget.userSession'].login}">
+				<div class="session_name inline">
+					ユーザー名： <span th:text="${session['scopedTarget.userSession'].name}"></span>
+				</div>
+
+				<div class="inline">
+					<form action="login.html" th:action="@{/logout}" method="post">
+
+						<button>ログアウト</button>
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

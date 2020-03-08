@@ -1,0 +1,141 @@
+/* ヘッダーデザイン(共通) */
+h1 {
+	margin-top: 5px;
+	font-size: 120%;
+	height: 50px;
+	line-height: 50px;
+	width: 100%;
+	background: #99ffff;
+	z-index: 10;
+	background: #99ffff;
+}
+
+/* エラーメッセージ(共通) */
+.message {
+	color: #ff0000;
+	margin-left: 10px;
+}
+
+/*右寄せ(共通)*/
+.right {
+	text-align: right;
+}
+
+/*中央揃え(共通)*/
+.center {
+	text-align: center;
+}
+
+/*ブロック横揃え(共通)*/
+.inline {
+	display: inline-block;
+}
+
+/* 空間(共通)*/
+.margin {
+	margin-top: 10px;
+	margin-left: 20px;
+}
+
+/* input(共通)*/
+input {
+	height: 15px;
+}
+
+/*ラベル 右揃え(login)*/
+.login_label {
+	margin-right: 10px;
+	width: 60px;
+	float: left;
+	text-align: right;
+}
+/*ラベル 右揃え(member)*/
+.member_label {
+	margin-right: 10px;
+	width: 100px;
+	float: left;
+	text-align: right;
+}
+
+/*ラベル 右揃え(disbursement)*/
+.disbursement_label {
+	margin-right: 10px;
+	width: 110px;
+	float: left;
+	text-align: right;
+}
+
+/*ログインボタン(login)*/
+.login_button {
+	position: relative;
+	top: 10px;
+	left: 195px;
+}
+
+/*登録ボタン(member)*/
+.member_button {
+	position: relative;
+	top: 10px;
+	left: 205px;
+}
+
+/*閲覧ボタン(top)*/
+.top_button {
+	margin-left: 20px;
+}
+
+/*登録ボタン(disbursement)*/
+.disbursement_button {
+	width: 80px;
+	height: 30px;
+	line-height: 20px;
+	margin-top: 20px;
+	margin-left: 230px;
+}
+
+/*削除ボタン(view)*/
+.drop_button {
+	margin-top: 10px;
+	margin-left: 640px;
+}
+
+/*ラジオボタン(member)*/
+.radio {
+	display: inline-block;
+	width: 90px;
+	right: 20px;
+}
+
+/*セッション名前(top)*/
+.session_name {
+	margin-right: 20px;
+	text-align: right;
+}
+
+/*リンク(top)*/
+.link {
+	font-size: 120%;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+/*日付(top)*/
+.date {
+	font-size: 110%;
+	text-align: center;
+}
+
+/*年月選択(top)*/
+.select {
+	margin-top: 15px;
+}
+
+/*テーブル罫線(view)*/
+table, th, td {
+	border: 1px solid black;
+}
+
+/*テーブル見出し背景色(view)*/
+th {
+	background-color: #d5ffff;
+}

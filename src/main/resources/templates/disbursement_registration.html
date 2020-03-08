@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>支出登録</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<div th:replace="header :: header(title='支出登録画面')"></div>
+
+	<form th:action="@{/disbursement_registration}" method="post"
+		th:object="${disbursementForm}">
+
+		<div class="margin">
+			<label for="date" class="disbursement_label"><b>日付：</b></label> <input
+				type="date" id="date" name="date"><span class="message"
+				th:errors="*{date}"></span>
+		</div>
+		<div class="margin">
+			<label for="category" class="disbursement_label"><b>分類：</b></label> <select
+				name="category">
+				<option th:each="item:${categoryOption}" th:text="${item.key}"
+					th:value="${item.value}"></option>
+			</select>
+		</div>
+		<div class="margin">
+			<label for="content" class="disbursement_label"><b>内容：</b></label> <input
+				type="text" id="content" name="content" maxlength="30"><span
+				class="message" th:errors="*{content}"></span>
+		</div>
+		<div class="margin">
+			<label for="size" class="disbursement_label"><b>個数（量）：</b></label> <input
+				type="text" id="size" name="size" maxlength="8"><span
+				class="message" th:errors="*{size}"></span>
+		</div>
+		<div class="margin">
+			<label for="billing" class="disbursement_label"><b>請求先：</b></label> <select
+				th:field="*{billing}">
+				<option th:value="全員">全員</option>
+				<option th:each="user:${user}" th:text="${user.name}"
+					th:value="${user.name}"></option>
+			</select>
+		</div>
+		<div class="margin">
+			<label for="payment" class="disbursement_label"><b>支払い：</b></label> <select
+				th:field="*{payment}">
+				<option th:each="user:${user}" th:text="${user.name}"
+					th:value="${user.name}"></option>
+			</select>
+		</div>
+		<div class="margin">
+			<label for="money" class="disbursement_label"><b>金額：</b></label> <input
+				class="field" type="text" id="money" name="money" maxlength="6"><span
+				class="message" th:errors="*{money}"></span>
+		</div>
+
+		<div>
+			<button class="disbursement_button">登録</button>
+		</div>
+
+	</form>
+</body>
+</html>

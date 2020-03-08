@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>メンバー登録</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+
+	<div th:replace="header :: header(title='ユーザー登録画面')"></div>
+
+	<form th:action="@{/member_registration}" method="post"
+		th:object="${memberForm}">
+
+		<div class="margin">
+			<label for="id" class="member_label"><b>ID：</b></label> <input
+				type="text" id="id" th:field="*{id}" name="id"><span
+				class="message" th:errors="*{id}"></span>
+		</div>
+		<div class="margin">
+			<label for="password" class="member_label"><b>パスワード：</b></label> <input
+				type="text" id="password" th:field="*{password}" name="password">
+			<span class="message" th:errors="*{password}"></span>
+		</div>
+		<div class="margin">
+			<label for="name" class="member_label"><b>ユーザー名：</b></label> <input
+				type="text" id="name" th:field="*{name}" name="name"> <span
+				class="message" th:errors="*{name}"></span>
+		</div>
+		<div class="margin">
+			<label for="authority" class="member_label"><b>権限：</b></label>
+			<div class="radio" th:each="item:${authorityOption}">
+				<input type="radio" id="authority" th:field="*{authority}"
+					name="authority" th:text="${item.key}" th:value="${item.value}"></input>
+			</div>
+			<span class="message" th:errors="*{authority}"></span>
+		</div>
+		<div>
+			<button class="member_button">ユーザー登録</button>
+		</div>
+	</form>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>TOP</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<div th:replace="header :: header(title='メニュー画面')"></div>
+
+	<br>
+	<p class="date"
+		th:text="${#dates.format(#dates.createNow(), 'yyyy年MM月dd日')}"></p>
+
+	<div class="link">
+		<a th:href="@{/disbursement_registration}">支出登録</a>
+	</div>
+
+	<form th:action="@{/view}" method="get" th:object="${topForm}">
+		<div class="center">
+			<div>
+				<select class="select" th:field="*{year}">
+					<option value="0">-</option>
+					<option th:value="${#dates.year(#dates.createNow())-1}"
+						th:text="${#dates.year(#dates.createNow())-1}"></option>
+					<option th:value="${#dates.year(#dates.createNow())}"
+						th:text="${#dates.year(#dates.createNow())}"></option>
+				</select> 年 <select class="select" th:field="*{month}">
+					<option value="0">-</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+					<option value="8">8</option>
+					<option value="9">9</option>
+					<option value="10">10</option>
+					<option value="11">11</option>
+					<option value="12">12</option>
+				</select> 月
+				<button class="top_button">閲覧</button>
+			</div>
+			<span class="message" th:errors="*{year}"></span> <span
+				class="message" th:errors="*{month}"></span>
+		</div>
+	</form>
+
+</body>
+</html>

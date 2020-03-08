@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>家計簿管理</title>
+<meta charset="UTF-8" />
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+	<div th:replace="header :: header(title='ログイン画面')"></div>
+
+	<form th:action="@{/login}" method="post" th:object="${loginForm}">
+
+		<div class="message" th:text="${message}"></div>
+
+		<div class="margin">
+			<label for="id" class="login_label"><b>ID：</b></label> <input
+				type="text" id="id" name="id" maxlength="20">
+		</div>
+		<div class="margin">
+			<label for="password" class="login_label"><b>PASS：</b></label> <input
+				type="password" id="password" name="password" maxlength="20">
+		</div>
+		<div>
+			<button class="login_button">ログイン</button>
+		</div>
+
+	</form>
+
+	<a th:href="@{/member_registration}">新規登録</a>
+
+</body>
+</html>

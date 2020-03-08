@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>閲覧画面</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<div th:replace="header :: header(title='閲覧画面')"></div>
+
+	<form th:action="@{/move}" method="get">
+		<div class="center">
+			<button name="button" value=0>←</button>
+			<input type="hidden" name="year" th:value="${year}"> <input
+				type="hidden" name="month" th:value="${month}"> <span
+				th:text="${year + '年' + month + '月'}"></span>
+			<button name="button" value=1>→</button>
+		</div>
+	</form>
+
+	<form th:action="@{/drop}" method="post">
+		<table class="margin">
+			<thead>
+				<tr>
+					<th>日付</th>
+					<th>タイプ</th>
+					<th>内容</th>
+					<th>個数(量)</th>
+					<th>金額(合計)</th>
+					<th>支払</th>
+					<th>請求</th>
+					<th>金額(１人当たり)</th>
+					<th th:if="${session['scopedTarget.userSession'].authority == 0}">削除</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="viewEntityALL:${viewEntitylist}"
+					th:object="${viewEntityALL}">
+					<td th:text="*{date}"></td>
+					<td th:text="*{category}"></td>
+					<td th:text="*{content}"></td>
+					<td th:text="*{size}"></td>
+					<td th:text="|*{money}円|"></td>
+					<td th:text="*{payment}"></td>
+					<td th:text="*{billing}"></td>
+					<td th:text="|*{person}円|"></td>
+					<td th:if="${session['scopedTarget.userSession'].authority == 0}"><input
+						type="checkbox" name="numberList" th:value="*{number}"></td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="hidden" name="year" th:value="${year}"> <input
+			type="hidden" name="month" th:value="${month}">
+		<div>
+			<button class="drop_button"
+				th:if="${session['scopedTarget.userSession'].authority == 0}">削除</button>
+		</div>
+
+	</form>
+
+	<h3 class="margin">当月合計</h3>
+	<table class="margin">
+		<tr>
+			<th>タイプ</th>
+			<td>金額</td>
+		</tr>
+		<tr>
+			<th>食費</th>
+			<td th:text="*{moneyBean.food_cost}">円</td>
+		</tr>
+		<tr>
+			<th>消耗品費</th>
+			<td th:text="*{moneyBean.supplies_expense}">円</td>
+		</tr>
+		<tr>
+			<th>雑費</th>
+			<td th:text="*{moneyBean.miscellaneous_expenses}">円</td>
+		</tr>
+		<tr>
+			<th>水道光熱費</th>
+			<td th:text="*{moneyBean.utilities_expense}">円</td>
+		</tr>
+		<tr>
+			<th>家賃</th>
+			<td th:text="*{moneyBean.rent}">円</td>
+		</tr>
+	</table>
+
+	<h3 class="margin">ログインユーザーの今月支払い額</h3>
+	<table class="margin">
+		<tr>
+			<th>名前</th>
+			<td><span th:text="${session['scopedTarget.userSession'].name}"></span></td>
+		</tr>
+		<tr>
+			<th>金額</th>
+			<td th:text="*{total}">円</td>
+		</tr>
+	</table>
+
+</body>
+</html>

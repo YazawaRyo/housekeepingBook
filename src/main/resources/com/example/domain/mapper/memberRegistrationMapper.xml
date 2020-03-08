@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper
+	namespace="com.example.domain.mapper.MemberRegistrationMapper">
+	<insert id="insertMember"
+		parameterType="com.example.domain.model.Member">
+		INSERT INTO management.member
+		(id,password,name,authority)
+		VALUE
+		(#{id},#{password},#{name},#{authority})
+	</insert>
+</mapper>
