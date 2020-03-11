@@ -2,15 +2,15 @@ package com.example.domain.service;
 
 import org.springframework.stereotype.Service;
 
-import com.example.domain.mapper.MemberRegistrationMapper;
+import com.example.domain.mapper.MemberMapper;
 import com.example.domain.model.Member;
 
 @Service
 public class MemberRegistrationService {
 
-	private final MemberRegistrationMapper memberRegistrationMapper;
+	private final MemberMapper memberRegistrationMapper;
 
-	public MemberRegistrationService(MemberRegistrationMapper memberRegistrationMapper) {
+	public MemberRegistrationService(MemberMapper memberRegistrationMapper) {
 		this.memberRegistrationMapper = memberRegistrationMapper;
 	}
 

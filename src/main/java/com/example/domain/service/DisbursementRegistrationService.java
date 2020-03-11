@@ -5,25 +5,25 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.example.Infrastructure.UserEntity;
-import com.example.domain.mapper.DisbursementRegistrationMapper;
-import com.example.domain.mapper.UserMapper;
+import com.example.domain.mapper.DisbursementMapper;
+import com.example.domain.mapper.MemberMapper;
 import com.example.domain.model.Disbursement;
 
 @Service
 public class DisbursementRegistrationService {
 
-	private final UserMapper userMapper;
-	private final DisbursementRegistrationMapper disbursementRegistrationMapper;
+	private final MemberMapper memberMapper;
+	private final DisbursementMapper disbursementRegistrationMapper;
 
-	public DisbursementRegistrationService(UserMapper userMapper,
-			DisbursementRegistrationMapper disbursementRegistrationMapper) {
-		this.userMapper = userMapper;
+	public DisbursementRegistrationService(MemberMapper memberMapper,
+			DisbursementMapper disbursementRegistrationMapper) {
+		this.memberMapper = memberMapper;
 		this.disbursementRegistrationMapper = disbursementRegistrationMapper;
 	}
 
 	public List<UserEntity> selectAllUser() {
 
-		List<UserEntity> list = userMapper.selectAllUser();
+		List<UserEntity> list = memberMapper.selectAllUser();
 
 		return list;
 	}

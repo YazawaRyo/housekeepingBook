@@ -14,24 +14,24 @@
 
 		<div class="margin">
 			<label for="date" class="disbursement_label"><b>日付：</b></label> <input
-				type="date" id="date" name="date"><span class="message"
-				th:errors="*{date}"></span>
+				type="date" id="date" th:field="*{date}" name="date"><span
+				class="message" th:errors="*{date}"></span>
 		</div>
 		<div class="margin">
 			<label for="category" class="disbursement_label"><b>分類：</b></label> <select
-				name="category">
+				th:field="*{category}" name="category">
 				<option th:each="item:${categoryOption}" th:text="${item.key}"
 					th:value="${item.value}"></option>
 			</select>
 		</div>
 		<div class="margin">
 			<label for="content" class="disbursement_label"><b>内容：</b></label> <input
-				type="text" id="content" name="content" maxlength="30"><span
-				class="message" th:errors="*{content}"></span>
+				type="text" id="content" th:field="*{content}" name="content"
+				maxlength="30"><span class="message" th:errors="*{content}"></span>
 		</div>
 		<div class="margin">
 			<label for="size" class="disbursement_label"><b>個数（量）：</b></label> <input
-				type="text" id="size" name="size" maxlength="8"><span
+				type="text" id="size" th:field="*{size}" name="size" maxlength="8"><span
 				class="message" th:errors="*{size}"></span>
 		</div>
 		<div class="margin">
@@ -51,8 +51,9 @@
 		</div>
 		<div class="margin">
 			<label for="money" class="disbursement_label"><b>金額：</b></label> <input
-				class="field" type="text" id="money" name="money" maxlength="6"><span
-				class="message" th:errors="*{money}"></span>
+				class="field" type="text" id="money" th:field="*{money}"
+				name="money" maxlength="6"><span class="message"
+				th:errors="*{money}"></span>
 		</div>
 
 		<div>

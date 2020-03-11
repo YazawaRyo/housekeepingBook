@@ -7,9 +7,11 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.Length;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import com.example.domain.exception.ValidGroup1;
+import com.example.domain.exception.ValidGroup2;
 
 public class DisbursementForm {
 
@@ -18,8 +20,10 @@ public class DisbursementForm {
 	private LocalDate date;
 	private String category;
 	@NotBlank(groups = ValidGroup1.class)
+	@Length(max = 20, groups = ValidGroup2.class)
 	private String content;
 	@NotBlank(groups = ValidGroup1.class)
+	@Length(max = 5, groups = ValidGroup2.class)
 	private String size;
 	private String billing;
 	private String payment;
