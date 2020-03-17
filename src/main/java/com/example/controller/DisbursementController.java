@@ -3,7 +3,6 @@ package com.example.controller;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -58,7 +57,8 @@ public class DisbursementController {
 	}
 
 	/**
-	 * 支出登録画面呼び出し
+	 * 支出登録画面呼び出し<br>
+	 * 画面表示用のアイテムを受け渡す
 	 * 
 	 * @param form  画面入力値
 	 * @param model
@@ -84,7 +84,9 @@ public class DisbursementController {
 	}
 
 	/**
-	 * 支出入力値登録
+	 * 支出入力値登録<br>
+	 * 入力値が正常であれば値を詰め替えDBへ登録する<br>
+	 * エラーがある場合は入力画面へ戻る
 	 * 
 	 * @param form          画面入力値
 	 * @param bindingResult 入力チェック結果

@@ -2,6 +2,13 @@ package com.example.domain.service.logic;
 
 public class CategoryChange {
 
+	/**
+	 * カテゴリ名変換<br>
+	 * DBに登録されている値を表示用に変換する
+	 * 
+	 * @param category カテゴリ（数値）
+	 * @return カテゴリ名（文字列）
+	 */
 	public static String setCategory(String category) {
 
 		switch (category) {
